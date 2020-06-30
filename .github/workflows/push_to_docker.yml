@@ -46,11 +46,7 @@ jobs:
             // We will-pick id later
       - run: echo -n ${{ secrets.GITHUB_TOKEN }} | docker login https://docker.pkg.github.com -u ${{ github.actor }} --password-stdin
       - run: set
-      - name: Try to restore docker cache
-        uses: actions/cache@v2
-        with:
-          path: /var/lib/docker
-          key: source-${{ hashFiles('**/index.json') }}-3
+      - run: docker pull ${{ steps.setup_docker.outputs.docker_url }}latest || true
       - run: |
           sudo docker builder prune --filter type=regular -f
       - run: echo docker build -t ${{ steps.setup_docker.outputs.image_name }} -f ${{ matrix.os }}/Dockerfile ..
