@@ -50,10 +50,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /var/lib/docker
-          key: source-${{ hashFiles('**/index.json') }}
+          key: source-${{ hashFiles('**/index.json') }}-3
       - run: |
-          sudo docker container prune -f
-          sudo docker image prune -f
           sudo docker builder prune --filter type=regular -f
       - run: echo docker build -t ${{ steps.setup_docker.outputs.image_name }} -f ${{ matrix.os }}/Dockerfile ..
       - run: docker build -t ${{ steps.setup_docker.outputs.image_name }} -f ${{ matrix.os }}/Dockerfile ..
