@@ -1,6 +1,6 @@
 {
   "name": "dummy-backend",
   "version": "1.0.0",
-  "esy": {"build": "true"},
-  "dependencies": { "ocaml": "^4.10.0" }
+  "esy": { "build": "false" },
+  "dependencies": { "@opam/dune": "2.6.0", "ocaml": "^4.10.0" }
 }
