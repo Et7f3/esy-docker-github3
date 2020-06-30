@@ -53,7 +53,7 @@ jobs:
           key: source-${{ hashFiles('**/index.json') }}
       - run: |
           sudo docker container prune -f
-          sudo docker container prune
+          sudo docker image prune -f
           sudo docker builder prune --filter type=regular -f
       - run: echo docker build -t ${{ steps.setup_docker.outputs.image_name }} -f ${{ matrix.os }}/Dockerfile ..
       - run: docker build -t ${{ steps.setup_docker.outputs.image_name }} -f ${{ matrix.os }}/Dockerfile ..
