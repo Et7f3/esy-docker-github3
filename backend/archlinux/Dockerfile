@@ -19,7 +19,5 @@ WORKDIR /project/backend
 
 
 RUN esy install
-RUN ls ~/.esy
-RUN ls ~/.esy/3__________________________________________________________________________
-RUN ls ~/.esy/3__________________________________________________________________________/i
-RUN esy build
+RUN esy build --release
+ENTRYPOINT echo well-play
