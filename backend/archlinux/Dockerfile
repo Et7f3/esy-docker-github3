@@ -1,4 +1,4 @@
-FROM esy-docker-github3-archlinux:latest
+FROM docker.pkg.github.com/et7f3/esy-docker-github3/esy-docker-github3-archlinux:latest
 
 RUN pacman -Syu --noconfirm
 RUN pacman -S --noconfirm base base-devel git npm perl
