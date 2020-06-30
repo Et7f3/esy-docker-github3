@@ -20,4 +20,5 @@ WORKDIR /project/backend
 
 RUN esy install
 RUN esy build --release
+RUN esy cleanup .
 ENTRYPOINT echo well-play
